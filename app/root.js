@@ -1,13 +1,9 @@
 import React from 'react'
 import Header from './components/header'
-import Progress from './components/progress'
+import Player from './page/player'
 let duration = null;
 let Root = React.createClass({
-	getInitialState() {
-		return {
-			progress: '-'
-		}
-	},
+	
 	componentDidMount() {
 		$('#player').jPlayer({
 			ready: function() {
@@ -18,12 +14,7 @@ let Root = React.createClass({
 			supplied: 'mp3',
 			wmode: 'window'
 		});
-		$('#player').bind($.jPlayer.event.timeupdate, (e) => {
-			duration = e.jPlayer.status.duration;
-			this.setState({
-				progress: e.jPlayer.status.currentPercentAbsolute
-			})
-		});
+		
 	},
 	componentWillUnmount() {
 		$('#player').unbind($.jPlayer.event.timeupdate);
@@ -32,16 +23,11 @@ let Root = React.createClass({
 		$('#player').jPlayer('play',duration * progress);
 	},
 	render() {
-		return ( < div >
-			< Header / >
-			< Progress 
-				progress = {
-					this.state.progress
-				} 
-				onProgressChange = { this.progressChangeHandler}
-				barColor = "#f00"
-			>
-			< /Progress> < /div>
+		return ( 
+			<div>
+				<Header />
+				<Player />
+			</div>
 		)
 	}
 })
