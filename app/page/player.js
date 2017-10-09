@@ -6,7 +6,8 @@ let Player = React.createClass({
 	getInitialState() {
 		return {
 			progress: '-',
-			play: true
+			play: true,
+			volume: 80
 		}
 	},
 	componentDidMount(){
@@ -20,6 +21,13 @@ let Player = React.createClass({
 	},
 	componentWillUnmount() {
 		$('#player').unbind($.jPlayer.event.timeupdate);
+	},
+	volumeChangeHandler(volume){
+		console.log(volume)
+		$("#player").jPlayer("volume",volume);
+		this.setState({
+			volume: volume*100
+		})
 	},
 	progressChangeHandler(progress){
 		console.log(progress)
@@ -81,6 +89,17 @@ let Player = React.createClass({
 					<button className="btn" onClick={this.stop}><span className="glyphicon glyphicon-stop"></span></button>
 					<button className="btn" onClick={this.forward}><span className="glyphicon glyphicon-forward"></span></button>
 					<button className="btn" onClick={this.fastForward}><span className="glyphicon glyphicon-fast-forward"></span></button>
+					<div className="volume">
+						<span className="glyphicon glyphicon glyphicon-volume-up"></span>
+						<Progress 
+							progress = {
+								this.state.volume
+							} 
+							onProgressChange = { this.volumeChangeHandler}
+							barColor = "#0f0"
+						>
+						</Progress>
+					</div>
 				</div>
 			</div>
 		)
