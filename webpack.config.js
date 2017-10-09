@@ -3,7 +3,7 @@ var webpack = require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-	entry: [
+    entry: [
         'webpack-dev-server/client?http://localhost:3888',
         'webpack/hot/only-dev-server',
         'react-hot-loader/patch',
@@ -16,31 +16,34 @@ module.exports = {
     },
     plugins: [
         new HtmlWebpackPlugin({
-          template: './index.tpl.html',
-          inject: 'body',
-          filename: './index.html'
+            template: './index.tpl.html',
+            inject: 'body',
+            filename: './index.html'
         }),
         new webpack.optimize.OccurenceOrderPlugin(),
         new webpack.HotModuleReplacementPlugin(),
         new webpack.NoErrorsPlugin(),
         new webpack.DefinePlugin({
-          'process.env.NODE_ENV': JSON.stringify('development')
+            'process.env.NODE_ENV': JSON.stringify('development')
         })
     ],
-	module: {
-		loaders: [{
-			test: /\.js$/,
-			exclude: /node_modules/,
-			loader: 'babel-loader',
-			query: {
-				presets: ['react', 'es2015']
-			}
-		}, {
-			test: /\.css$/,
-			loader: 'style!css'
-		}, {
-			test: /\.less/,
-			loader: 'style-loader!css-loader!less-loader'
-		}]
-	}
+    module: {
+        loaders: [{
+            test: /\.js$/,
+            exclude: /node_modules/,
+            loader: 'babel-loader',
+            query: {
+                presets: ['react', 'es2015']
+            }
+        }, {
+            test: /\.css$/,
+            loader: 'style!css'
+        }, {
+            test: /\.less/,
+            loader: 'style-loader!css-loader!less-loader'
+        }, {
+            test: /\.(eot|svg|ttf|woff|woff2)\w*/,
+            loader: 'url-loader?limit=1000000'
+        }]
+    }
 }

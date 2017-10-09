@@ -1,9 +1,15 @@
 import React from 'react'
 import Header from './components/header'
 import Player from './page/player'
+import 'bootstrap/dist/css/bootstrap.css'
+
 let duration = null;
 let Root = React.createClass({
-	
+	getInitialStare() {
+		return {
+			
+		}
+	},
 	componentDidMount() {
 		$('#player').jPlayer({
 			ready: function() {
@@ -17,7 +23,6 @@ let Root = React.createClass({
 		
 	},
 	componentWillUnmount() {
-		$('#player').unbind($.jPlayer.event.timeupdate);
 	},
 	progressChangeHandler(progress){
 		$('#player').jPlayer('play',duration * progress);
