@@ -7,7 +7,6 @@ let PlayerList = React.createClass({
         let listDom = null;
         let slef = this;
         listDom = this.props.musicList.map((item) => {
-            console.log(item)
             return <PlayerListItem key={item.id} musicItem = {item} focus={item ===this.props.currentMusicItem} />
         }); 
         return (
