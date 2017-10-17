@@ -1,0 +1,27 @@
+export const MUSIC_LIST = [
+    {
+        id:1,
+        title:'稻香',
+        artist:'周杰伦',
+        file:'http://ws.stream.qqmusic.qq.com/449205.m4a?fromtag=46',
+        cover:'https://y.gtimg.cn/music/photo_new/T002R300x300M000002Neh8l0uciQZ.jpg?max_age=2592000'
+    },{
+        id:2,
+        title:'告白气球',
+        artist:'周杰伦',
+        file:'http://ws.stream.qqmusic.qq.com/107192078.m4a?fromtag=46',
+        cover:'https://y.gtimg.cn/music/photo_new/T002R300x300M000003RMaRI1iFoYd.jpg?max_age=2592000'
+    },{
+        id:3,
+        title:'晴天',
+        artist:'周杰伦',
+        file:'http://ws.stream.qqmusic.qq.com/97773.m4a?fromtag=46',
+        cover:'https://y.gtimg.cn/music/photo_new/T002R300x300M000000MkMni19ClKG.jpg?max_age=2592000'
+    },{
+        id:4,
+        title:'安静',
+        artist:'周杰伦',
+        file:'http://ws.stream.qqmusic.qq.com/97743.m4a?fromtag=46',
+        cover:'https://y.gtimg.cn/music/photo_new/T002R300x300M000000I5jJB3blWeN.jpg?max_age=2592000'
+    }
+]

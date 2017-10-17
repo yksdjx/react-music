@@ -14,10 +14,10 @@ let Header  =  React.createClass({
 			<div className="component-header">
 				<div className="media">
 					<div className="media-left media-middle">
-						<img src="/static/images/logo.png" width="40" className="-col-auto"/>
+						
 					</div>
 					<div className="media-body">
-						<h4 className="media-heading">{this.state.songName}</h4>
+						Just Your Music
 				  	</div>
 				</div>
 								
